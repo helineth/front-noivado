@@ -70,10 +70,10 @@ export default function Home() {
       />
 
       {/* Rose corner decorations */}
-      <RoseDecoration position="top-left" />
+     {/*  <RoseDecoration position="top-left" />
       <RoseDecoration position="top-right" />
       <RoseDecoration position="bottom-left" className="hidden sm:block" />
-      <RoseDecoration position="bottom-right" className="hidden sm:block" />
+      <RoseDecoration position="bottom-right" className="hidden sm:block" /> */}
 
       {/* Content */}
       <motion.div
@@ -96,8 +96,8 @@ export default function Home() {
 
         {/* Names */}
         <motion.div variants={fadeUp} className="my-10">
-          <h1 className="font-script leading-none">
-            <span className="block text-[5rem] sm:text-[7rem] md:text-[8rem] text-gold-shimmer">
+          <h1 className="font-script ">
+            <span className="block text-[5rem] sm:text-[7rem] md:text-[8rem] ">
               Juvial
             </span>
             <span className="block font-serif italic text-xl sm:text-2xl text-gold-500/60 tracking-[0.5em] my-2">

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { motion, AnimatePresence } from 'framer-motion'
+import { FaCamera, FaFolder } from 'react-icons/fa'
 import GoldDivider from '../components/GoldDivider'
 
 const API = '/api'
@@ -84,7 +85,7 @@ export default function Photos() {
   const [uploads, setUploads] = useState([])
 
   const fetchPhotos = async () => {
-    try {
+/*     try {
       const res = await fetch(`${API}/photos`)
       if (!res.ok) throw new Error('Erro ao carregar fotos')
       const data = await res.json()
@@ -93,7 +94,7 @@ export default function Photos() {
       setError('Backend não disponível. Inicia o servidor NestJS (porta 3001).')
     } finally {
       setLoading(false)
-    }
+    } */
   }
 
   useEffect(() => {
@@ -195,7 +196,7 @@ export default function Photos() {
           <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold-500/60 mb-4">
             Momentos partilhados
           </p>
-          <h2 className="font-script text-5xl sm:text-6xl text-gold-shimmer mb-4">Galeria</h2>
+          <h2 className="font-script text-5xl sm:text-6xl  mb-4">Galeria</h2>
           <GoldDivider className="mt-2" />
           <p className="font-serif italic text-gold-300/60 text-sm mt-5 max-w-sm mx-auto">
             Partilha os teus momentos desta noite especial. As fotos ficam guardadas para sempre.
@@ -218,7 +219,9 @@ export default function Photos() {
             }`}
           >
             <input {...getInputProps()} />
-            <div className="text-4xl mb-4">{isDragActive ? '📂' : '📸'}</div>
+            <div className="text-4xl mb-4 text-center align-items-center justify-items-center">
+              {isDragActive ? <FaFolder /> : <FaCamera />}
+            </div>
             <p className="font-serif text-gold-300 text-lg mb-2">
               {isDragActive ? 'Larga as fotos aqui…' : 'Arrasta fotos ou clica para seleccionar'}
             </p>
@@ -269,9 +272,9 @@ export default function Photos() {
         {/* Gallery */}
         {loading ? (
           <div className="text-center py-16">
-            <div className="font-sans text-gold-500/50 text-sm tracking-wider">
+         {/*    <div className="font-sans text-gold-500/50 text-sm tracking-wider">
               A carregar galeria…
-            </div>
+            </div> */}
           </div>
         ) : error ? (
           <motion.div

@@ -1,13 +1,14 @@
 import { useCallback, useState } from 'react'
 import { motion } from 'framer-motion'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
+import { FaHotel, FaMapPin, FaCalendar, FaClock, FaCar, FaTaxi, FaPhone } from 'react-icons/fa'
 import GoldDivider from '../components/GoldDivider'
 
 // Don Gal Hotel, Luanda — confirma as coordenadas exatas antes de publicar
-const HOTEL_COORDS = { lat: -8.8383, lng: 13.2344 }
+const HOTEL_COORDS = { lat: -8.9160788, lng: 13.3294661 }
 const HOTEL_NAME = 'Don Gal Hotel'
-const HOTEL_ADDRESS = 'Rua Marechal Brós Tito, Luanda, Angola'
-const GOOGLE_MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${HOTEL_COORDS.lat},${HOTEL_COORDS.lng}`
+const HOTEL_ADDRESS = 'Rua Jacinto Tchipa, Luanda, Angola'
+const GOOGLE_MAPS_LINK = `https://maps.app.goo.gl/KN8BwzqsHiBFPhnn8`
 
 const mapContainerStyle = { width: '100%', height: '100%' }
 
@@ -110,9 +111,9 @@ function MapFallback() {
       >
         Abrir no Google Maps
       </a>
-      <p className="font-sans text-gold-500/40 text-xs mt-2">
+{/*       <p className="font-sans text-gold-500/40 text-xs mt-2">
         Configure VITE_GOOGLE_MAPS_API_KEY no ficheiro .env para ver o mapa
-      </p>
+      </p> */}
     </div>
   )
 }
@@ -164,27 +165,27 @@ function Map() {
 }
 
 const infoItems = [
-  { icon: '🏨', label: 'Local', value: HOTEL_NAME },
-  { icon: '📍', label: 'Endereço', value: HOTEL_ADDRESS },
-  { icon: '📅', label: 'Data', value: '06 de Junho de 2026' },
-  { icon: '🕕', label: 'Hora', value: '18:30' },
+  { icon: FaHotel, label: 'Local', value: HOTEL_NAME },
+  { icon: FaMapPin, label: 'Endereço', value: HOTEL_ADDRESS },
+  { icon: FaCalendar, label: 'Data', value: '06 de Junho de 2026' },
+  { icon: FaClock, label: 'Hora', value: '18:30' },
 ]
 
 const directions = [
   {
-    icon: '🚗',
+    icon: FaCar,
     title: 'De Carro',
-    text: 'Dirija-se ao centro de Luanda e siga as indicações para o Don Gal Hotel. Estacionamento disponível nas imediações.',
+    text: 'Para o sentido Calemba2 → Luanda Sul, siga com a estrada, após a paragem da Nice, o hotel estará à sua direita após 300m antes de chegar no Alimenta Angola. Para o sentido Luanda Sul → Calemba2, siga pela estrada principal, até chegar no desvio da entrada da suave, chegue até às bombas da Pumangol. faça o contorno e siga pelo sentido Calemnba2 → Luanda Sul, o hotel estará à sua direita após 300m antes de chegar no Alimenta Angola.',
   },
   {
-    icon: '🚕',
+    icon: FaTaxi,
     title: 'De Táxi / Candongueiro',
-    text: 'Indique "Don Gal Hotel" ao motorista. O hotel fica numa zona de fácil acesso no centro da cidade.',
+    text: 'Na rotunda do Camama, apanhe um táxi  com destino a Luanda Sul. Informe o motorista que é para parar no Don Gal Hotel, que fica próximo ao Alimenta Angola. Na Vila de Viana, apanhe um táxi com destino ao Calemba2 ou Madeira/Farmácia e informe o motorista que é para parar na entrada da suave, passe pela passadeira e verá p Alimenta Angola, e caminhe até ao hotel que fica próximo ao Alimenta Angola.',
   },
   {
-    icon: '📞',
+    icon: FaPhone,
     title: 'Precisa de Ajuda?',
-    text: 'Entre em contacto com a organização para obter indicações personalizadas para a sua localização.',
+    text: 'Entre em contacto com a organização para obter indicações personalizadas para a sua localização pelo número 928339349.',
   },
 ]
 
@@ -204,7 +205,7 @@ export default function Location() {
           <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold-500/60 mb-4">
             Onde nos encontrar
           </p>
-          <h2 className="font-script text-5xl sm:text-6xl text-gold-shimmer mb-4">
+          <h2 className="font-script text-5xl sm:text-6xl  mb-4">
             Localização
           </h2>
           <GoldDivider className="mt-2" />
@@ -227,9 +228,9 @@ export default function Location() {
           transition={{ delay: 0.35, duration: 0.6 }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6"
         >
-          {infoItems.map(({ icon, label, value }) => (
-            <div key={label} className="glass-card p-4 text-center">
-              <div className="text-xl mb-2">{icon}</div>
+          {infoItems.map(({ icon: Icon, label, value }) => (
+            <div key={label} className="glass-card p-4 text-center justify-center align-items-center justify-items-center">
+              <div className="text-xl mb-2" text-center><Icon /></div>
               <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-gold-500 mb-1">
                 {label}
               </div>
@@ -270,9 +271,9 @@ export default function Location() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-4">
-            {directions.map(({ icon, title, text }) => (
+            {directions.map(({ icon: Icon, title, text }) => (
               <div key={title} className="glass-card p-5">
-                <div className="text-2xl mb-3">{icon}</div>
+                <div className="text-2xl mb-3"><Icon /></div>
                 <h4 className="font-sans text-xs tracking-[0.15em] uppercase text-gold-500 mb-2">
                   {title}
                 </h4>
@@ -283,9 +284,9 @@ export default function Location() {
 
           {/* Coordinates */}
           <div className="mt-6 text-center">
-            <p className="font-sans text-xs text-gold-500/40 tracking-wider">
+           {/*  <p className="font-sans text-xs text-gold-500/40 tracking-wider">
               GPS: {HOTEL_COORDS.lat}, {HOTEL_COORDS.lng}
-            </p>
+            </p> */}
           </div>
         </motion.div>
       </div>

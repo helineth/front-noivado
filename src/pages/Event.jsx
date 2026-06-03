@@ -1,62 +1,69 @@
 import { motion } from 'framer-motion'
+import { VscMusic } from "react-icons/vsc";
+import { FaPrayingHands, FaUtensils, FaCoffee, FaBirthdayCake, FaDoorOpen, FaCamera, FaMoon } from 'react-icons/fa'
 import GoldDivider from '../components/GoldDivider'
+import { GiRose, GiPartyPopper } from 'react-icons/gi'
 
 const timeline = [
   {
-    time: '18:00',
-    title: 'Recepção dos Convidados',
+    time: '16:00 – 17:45',
+    title: 'Conversa entre as famílias',
     description:
-      'As portas do Don Gal Hotel abrem com música suave, flores e um cálido acolhimento. Cada convidado é recebido com carinho.',
-    icon: '🌹',
+      'Acolhimento formal, apresentação das famílias, partilha de intenções e alinhamento do noivado.',
+    icon: FaPrayingHands,
+  },
+  {
+    time: '17:45 – 18:00',
+    title: 'Coffee break',
+    description: 'Momento leve de convívio.',
+    icon: FaCoffee,
+  },
+  {
+    time: '18:00 – 18:20',
+    title: 'Corte do bolo',
+    description:
+      'Momento simbólico realizado antes da entrada no salão, marcando a passagem para a celebração oficial.',
+    icon: FaBirthdayCake,
   },
   {
     time: '18:30',
-    title: 'Chegada dos Noivos',
+    title: 'Abertura oficial / Entrada no salão',
     description:
-      'Juvial e Rosa fazem a sua entrada especial. Um momento de emoção, amor e elegância que ficará para sempre na memória de todos.',
-    icon: '💑',
+      'A cerimónia oficial começa com a entrada dos noivos no salão, convidando todos para a celebração.',
+    icon: FaDoorOpen,
   },
   {
-    time: '19:00',
-    title: 'Cerimónia de Noivado',
+    time: '18:35 – 18:50',
+    title: 'Momento de dança inicial',
     description:
-      'A cerimónia começa com palavras de amor, promessas sinceras e a bênção de familiares e amigos queridos.',
-    icon: '✨',
+      'Primeira dança do casal e interação com os convidados.',
+    icon: VscMusic,
   },
   {
-    time: '19:30',
-    title: 'Troca de Alianças',
+    time: '18:50 – 20:00',
+    title: 'Abertura do Buffet',
     description:
-      'O momento mais simbólico da noite — a troca dos anéis que lacram a promessa de um futuro construído juntos, com amor e cumplicidade.',
-    icon: '💍',
+      'Serviço e refeição para os convidados, ambiente mais calmo e social.',
+    icon: FaUtensils,
   },
   {
-    time: '20:00',
-    title: 'Brinde de Honra',
+    time: '20:00 – 21:00',
+    title: 'Sessão de fotos',
     description:
-      'Em honra dos noivos, levantamos as taças. Um brinde à felicidade, ao amor duradouro e ao início de um novo capítulo.',
-    icon: '🥂',
+      'Registo fotográfico com famílias, convidados e noivos.',
+    icon: FaCamera,
   },
   {
-    time: '20:30',
-    title: 'Jantar de Gala',
-    description:
-      'Uma experiência gastronómica inigualável num ambiente de requinte e elegância. Sabores que complementam a magia da noite.',
-    icon: '🍽️',
+    time: '21:00 em diante',
+    title: 'Abertura da pista de dança',
+    description: 'Momento de festa, dança e convívio geral.',
+    icon: GiPartyPopper,
   },
   {
-    time: '22:00',
-    title: 'Primeiro Baile',
-    description:
-      'Juvial e Rosa abrem a pista de dança com o seu primeiro baile enquanto noivos. Uma dança de amor que emociona todos os presentes.',
-    icon: '💃',
-  },
-  {
-    time: '22:30',
-    title: 'Festa e Celebração',
-    description:
-      'A pista enche-se de alegria! Música, dança e momentos inesquecíveis com os que mais amamos. A noite é jovem e o amor é eterno.',
-    icon: '🎉',
+    time: '07:00',
+    title: 'Encerramento oficial do evento',
+    description: 'Finalização do evento.',
+    icon: FaMoon,
   },
 ]
 
@@ -91,7 +98,7 @@ export default function Event() {
           <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold-500/60 mb-4">
             06 de Junho de 2026
           </p>
-          <h2 className="font-script text-5xl sm:text-6xl text-gold-shimmer mb-4">O Evento</h2>
+          <h2 className="font-script text-5xl sm:text-6xl  mb-4">O Evento</h2>
           <GoldDivider className="mt-2" />
         </motion.div>
 
@@ -135,10 +142,10 @@ export default function Event() {
                 {/* Icon dot — centered on line for sm+, left-aligned for mobile */}
                 <div className="relative z-10 flex-shrink-0 sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:top-1">
                   <div className="w-14 h-14 glass-card flex flex-col items-center justify-center border-gold-500/30">
-                    <span className="text-xl">{item.icon}</span>
-                    <span className="font-sans text-[9px] text-gold-500 tracking-wider mt-0.5">
+                    <item.icon className="text-xl" />
+                {/*     <span className="font-sans text-[9px] text-gold-500 tracking-wider mt-0.5">
                       {item.time}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
 
